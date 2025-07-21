@@ -1,0 +1,22 @@
+public Id insertStudent(String name, String email) {
+    // code here
+    Id idToReturn;
+    if(email!=null && name!=null){
+        List<apxio__Student__c> listToInsert = new List<apxio__Student__c>();
+        apxio__Student__c studentRecord = new apxio__Student__c();
+        studentRecord.Name = name;
+        studentRecord.apxio__Email__c = email;
+        listToInsert.add(studentRecord);
+        if(!listToInsert.isEmpty()){
+            Database.SaveResult[] srList = Database.insert(listToInsert);
+            for (Database.SaveResult sr : srList)
+            {
+                idToReturn = sr.getId();
+            }
+        }
+        return idToReturn;
+    }
+    else{
+        return idToReturn;
+    }
+}
