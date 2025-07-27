@@ -1,7 +1,7 @@
 public Id insertCourse(String name, String details, Integer credits) {
     // code here
     Id idToReturn;
-    if (name!=null && details!=null && (credits<1 || credits>4)){
+    if (name!=null && details!=null && !(credits<1 || credits>4)){
         List<apxio__Course__c> listToInsert = new List<apxio__Course__c>();
         apxio__Course__c apxioObj = new apxio__Course__c ();
         apxioObj.Name = name;
