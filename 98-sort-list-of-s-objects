@@ -1,0 +1,31 @@
+public List<Account> getAccounts(List<Account> accounts) {
+
+    accounts?.sort(new AnnualRevenueComparator());
+
+    return accounts;
+
+}
+
+public class AnnualRevenueComparator implements Comparator<Account> {
+
+    public Integer compare(Account acc1, Account acc2) {
+
+        if (acc1?.AnnualRevenue == null && acc2?.AnnualRevenue == null) {
+
+            return 0; // Both null, considered equal
+
+        } else if(acc1.AnnualRevenue<acc2.AnnualRevenue) {
+
+            return 1;
+
+        }
+
+        else {
+
+            return -1;
+
+        }
+
+    }
+
+}
