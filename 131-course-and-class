@@ -1,0 +1,18 @@
+public void createCourseAndClass(String name, String description) {
+    // code here
+    apxio__Course__c courseObj = new apxio__Course__c();
+    courseObj.Name = name!=null? name :'';
+    courseObj.apxio__Course_Details__c = description!=null? description :'';
+    insert courseObj;
+
+    apxio__Class__c classObj = new apxio__Class__c();
+    classObj.apxio__Course__c = courseObj.Id;
+    classObj.Name = name!=null? name :'';
+    if (!String.isBlank(description)){
+        //cl.apxio__Description__c = description.substring(0, 255); // doesn't work
+        //doesn't work because 0-255 substring can be taken out of a small descripton string
+        classObj.apxio__Description__c = description.left(255); // works
+    }
+    insert courseObj;
+
+}
