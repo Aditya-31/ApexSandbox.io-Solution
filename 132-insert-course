@@ -1,0 +1,21 @@
+public Id insertCourse(String name, String details, Integer credits) {
+    // code here
+    Id idToReturn;
+    if (name!=null && details!=null && (credits<1 || credits>4)){
+        List<apxio__Course__c> listToInsert = new List<apxio__Course__c>();
+        apxio__Course__c apxioObj = new apxio__Course__c ();
+        apxioObj.Name = name;
+        apxioObj.apxio__Credits__c = credits;
+        apxio__Course_Details__c = details;
+        listToInsert.add(apxioObj);
+        if(!listToInsert.isEmpty()){
+            Database.SaveResult[] srList = Database.insert(listToInsert);
+            for (Database.SaveResult sr : srList)
+            {
+                idToReturn = sr.getId();
+            }
+        }
+        return idToReturn;
+    }
+    else return null;
+}
