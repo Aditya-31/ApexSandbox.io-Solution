@@ -15,8 +15,8 @@ public String registerStudent(String name, String phone, String email) {
                 idToFetch = sr.getId();
             }
         }
-        return SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE
-    Id : idToFetch LIMIT 1;
+        return [SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE
+    Id : idToFetch LIMIT 1].apxio__Registration_Number__c;
     }
     else return null;
 }
