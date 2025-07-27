@@ -1,0 +1,22 @@
+public String registerStudent(String name, String phone, String email) {
+    // code here
+    Id idToFetch;
+    if (name!=null && phone!=null && email!=null){
+        List<apxio__Student__c> listToInsert = new List<apxio__Student__c>();
+        apxio__Student__c apxioObj = new apxio__Student__c ();
+        apxioObj.Name = name;
+        apxioObj.apxio__Email__c = email;
+        apxioObj.apxio__Phone__c = phone;
+        listToInsert.add(apxioObj);
+        if(!listToInsert.isEmpty()){
+            Database.SaveResult[] srList = Database.insert(listToInsert);
+            for (Database.SaveResult sr : srList)
+            {
+                idToFetch = sr.getId();
+            }
+        }
+        return SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE
+    Id : idToFetch LIMIT 1;
+    }
+    else return null;
+}
