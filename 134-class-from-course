@@ -2,11 +2,14 @@ public Id classFromCourse(String courseName) {
     // code here
     if(courseName != null){
         List<apxio__Course__c> courseList = [SELECT ID, Name from apxio__Course__c where Name =: courseName];
-        apxio__Class__c classObj = new apxio__Class__c();
-        classObj.apxio__Course__c = courseList[0].Id;
-        classObj.Name = courseList[0].Name;
-        insert classObj;
-        return classObj.Id;
+        if(!courseList.isEmpty()){
+            apxio__Class__c classObj = new apxio__Class__c();
+            classObj.apxio__Course__c = courseList[0].Id;
+            classObj.Name = courseList[0].Name;
+            insert classObj;
+            return classObj.Id;
+        }
+        else return null;
     }
     else return null;
 }
