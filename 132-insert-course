@@ -6,7 +6,7 @@ public Id insertCourse(String name, String details, Integer credits) {
         apxio__Course__c apxioObj = new apxio__Course__c ();
         apxioObj.Name = name;
         apxioObj.apxio__Credits__c = String.valueOf(credits);
-        apxio__Course_Details__c = details;
+        apxioObj.apxio__Course_Details__c = details;
         listToInsert.add(apxioObj);
         if(!listToInsert.isEmpty()){
             Database.SaveResult[] srList = Database.insert(listToInsert);
