@@ -10,6 +10,5 @@ public void setAccountRating(Account a) {
         else if(a.AnnualRevenue > 500000){
             a.Rating = 'Hot';
         }
-        Database.insert(a);
     }
 }
