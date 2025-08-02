@@ -1,6 +1,10 @@
 public String aOrAn(String word) {
     //code here
+    return word.startsWith('a') || word.startsWith('e') || word.startsWith('i') ||
+    word.startsWith('o') || word.startsWith('u') ? ('an ' + word) : ('a ' + word);  
+    /*
     String start = word.subString(0,1);
     return (start.equals('a') || start.equals('e') || start.equals('i') ||
     start.equals('o') || start.equals('u') ) ? ('an ' + word) : ('a ' + word);   
+    */
 }
