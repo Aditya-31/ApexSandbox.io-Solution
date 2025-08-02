@@ -2,5 +2,5 @@ public String aOrAn(String word) {
     //code here
     String start = word.subString(0);
     return (start.equals('a') || start.equals('e') || start.equals('i') ||
-    start.equals('o') || start.equals('u') ) ? ('an' + word) : ('a' + word);   
+    start.equals('o') || start.equals('u') ) ? ('an ' + word) : ('a ' + word);   
 }
