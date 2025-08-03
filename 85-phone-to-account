@@ -1,9 +1,9 @@
 public Map<String, Account> phoneToAccount(List<Account> accounts) {
     //code here
-    Map<String, String> nameVsPhone = new Map<String, String> ();
+    Map<String, Account> nameVsPhone = new Map<String, String> ();
     for (Account c : accounts){
         if(c.Phone != null){
-            nameVsPhone.put(c.Name, c.Phone);
+            nameVsPhone.put(c.Name, c);
         }
     }
     return nameVsPhone;
